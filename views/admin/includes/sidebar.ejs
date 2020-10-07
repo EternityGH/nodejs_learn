@@ -1,0 +1,19 @@
+<div class="widgets">
+    <div class="top-sidebar">
+        <h1><a href="/">Trang chủ</a></h1>
+    </div>
+    <div class="widget-menu">
+        <ul>
+            <li <%if(adminPage == 'socials'){%> class="active" <%}%> >
+                <a href="/admin/socials"><i class="fas fa-cogs"></i><span>Quản lý mxh</span></a>
+            </li>
+            <li id="logout" style="cursor: pointer"><a>Đăng xuất</a></li>
+        </ul>
+    </div>
+</div>
+<script>
+    document.getElementById('logout').addEventListener('click',function(){
+        document.cookie = "passport=123; expires=Thu, 18 Dec 2010 12:00:00 UTC; path=/"
+        location.reload (true)
+    })
+</script>

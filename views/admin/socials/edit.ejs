@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include ('../includes/head.ejs')%>
+<body>
+    <main>
+        <div class="nps-container-fluid">
+            <div class="nps-row m-0">
+                <div class="nps-col-3">
+                    <aside>
+                        <%-include ('../includes/sidebar.ejs')%>
+                    </aside>
+                </div>
+                <div class="nps-col-9">
+                    <section class="content">
+                        <%-include ('../includes/title-admin.ejs')%>
+                        <div id="id" style="display: none;"><%=id%></div>
+
+                        <form id="form" method="POST" action="/admin/<%=adminPage%>/edit/">
+                            <input type="text" name="id" style="display: none;" value="<%=data._id%>">
+                            <div class="group-input">
+                                <div class="row">
+                                    <div class="group">
+                                        <span>Thứ tự</span>
+                                        <input type="number" name="ordering" value="<%=data.ordering%>">
+                                    </div>
+                                    <div class="group">
+                                        <span>Trang đích</span>
+                                        <input type="text" name="target" value="<%=data.target_url%>">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="group">
+                                        <span>url hình</span>
+                                        <input type="text" name="img" value="<%=data.img_url%>">
+                                    </div>
+                                </div>
+    
+                                <div class="row">
+                                    <div class="group">
+                                        <span>có hiển thị?</span>
+                                        <input type="checkbox" name="display" 
+                                        <%if(data.display){%>checked<%}%>
+                                        >
+                                    </div>
+                                </div>
+    
+                                <div class="row">
+                                    <div class="group">
+                                        <button type="submit" id="submit">Sửa</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<%include ('../includes/js.ejs')%>
+
+<script>
+    const form = document.getElementById('form')
+
+    form.onsubmit = e => {
+        // e.preventDefault()
+        // const data = new FormData(e.target)
+        // const submitData = {}
+        // for(var pair of data.entries()) {
+        //     submitData[pair[0]] = pair[1]
+        // }
+
+        // console.log(submitData);
+    }
+</script>
+
+</html>
